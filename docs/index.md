@@ -1,7 +1,7 @@
-test
 
 
 
 
 
-[https://github.com/nordthomas/IntroToProg-Python-Mod07](https://nordthomas.github.io/IntroToProg-Python-Mod07/)
+
+Link to my published page: [https://github.com/nordthomas/IntroToProg-Python-Mod07](https://nordthomas.github.io/IntroToProg-Python-Mod07/)
