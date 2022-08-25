@@ -2,14 +2,14 @@ Thomas Nord
 08-22-2022  
 Foundations of Programming (Python)  
 Recap of Module 07 – Files and Exceptions  
-[https://github.com/nordthomas/IntroToProg-Python-Mod07](https://github.com/nordthomas/IntroToProg-Python-Mod07)
+[https://github.com/nordthomas/IntroToProg-Python-Mod07](https://github.com/nordthomas/IntroToProg-Python-Mod07)  
 
 
-# Pickling and Exceptions
+# Pickling and Exceptions  
 
 
 ## Introduction
-In this week’s lesson we learned more about working with files, specifically working with data files. We learned what pickling is and how to use it to convert objects to byte streams. We also learned about structured error handling and using exceptions with a try-except block. Our assignment this week tasked us with creating a script that demonstrates how both pickling and structured error handling work. 
+In this week’s lesson we learned more about working with files, specifically working with data files. We learned what pickling is and how to use it to convert objects to byte streams. We also learned about structured error handling and using exceptions with a `try-except` block. Our assignment this week tasked us with creating a script that demonstrates how both pickling and structured error handling work. 
 
 
 ## Pickling
@@ -25,7 +25,7 @@ For my demo script this week I started with a basic menu that asks the use which
 
 ***Figure 1: The demo menu***
 
-The code for this menu is a slightly modified version of the menu we used for Assignment 06. I built the menu and the user’s choice in to functions and called those functions inside of a while loop: 
+The code for this menu is a slightly modified version of the menu we used for Assignment 06. I built the menu and the user’s choice in to functions and called those functions inside of a `while` loop: 
 
     while (True):
         IO.output_menu_demo()  # Shows menu
@@ -37,7 +37,7 @@ If the user chooses the Pickling Demo I present a second menu where they can cho
 
 ***Figure 2: Pickle menu***
 
-I set up a nested while loop and used the same approach to the main menu to create the pickle menu. If a user chooses the Pickle Data option I ask them to provide some data that we can pickle. In a callback to our first assignment I ask for their first and last name. 
+I set up a nested `while` loop and used the same approach to the main menu to create the pickle menu. If a user chooses the Pickle Data option I ask them to provide some data that we can pickle. In a callback to our first assignment I ask for their first and last name. 
 
     print("First, we'll need some data to pickle.")
     lst_pickle_data = IO.input_pickle_data()
@@ -59,7 +59,7 @@ Once I have a list, we’re ready to pickle. I call another custom function with
 
     Processing.save_data_to_file(FILENAME, lst_pickle_data)
 
-The function we are calling here uses the open function to open our file and because we are using a write mode it will create the file if it doesn’t already exist on disk. Because we are writing a byte stream now instead of strings of text we need to use the “wb” mode, which allows us to write to a binary file. 
+The function we are calling here uses the `open` function to open our file and because we are using the `write` mode it will create the file if it doesn’t already exist on disk. Because we are writing a byte stream now instead of strings of text we need to use the “`wb`” mode, which allows us to write to a binary file. 
 
     @staticmethod
     def save_data_to_file(file_name, list_of_data):
@@ -72,7 +72,7 @@ The function we are calling here uses the open function to open our file and bec
         pickle.dump(list_of_data, objFile)
         objFile.close()
         
-The dump method will then take our list and convert it to a byte stream and write it to the binary file. We’ll use the close method to then close the file. 
+The `dump` method will then take our list and convert it to a byte stream and write it to the binary file. We’ll use the `close` method to then close the file. 
 
 After pickling the data we’ll display it back to the user in its pickled for so they can see what it looks like (Figures 3.1 & 3.2).
 
@@ -88,7 +88,7 @@ To complete our demo of pickling we need to demonstrate to the user what un-pick
     Processing.read_data_from_file(FILENAME)
     print("\nYour data has been un-pickled!")
 
-When we look at the function itself it takes one argument, the name of the file to read from, and then opens the file. We declare a variable that we want to read the data in to and then assign the pickle.load method to it. This will convert our byte stream data into a list that we can then display to the user (Figure 4).
+When we look at the function itself it takes one argument, the name of the file to read from, and then opens the file. We declare a variable that we want to read the data in to and then assign the `pickle.load` method to it. This will convert our byte stream data into a list that we can then display to the user (Figure 4).
 
     @staticmethod
     def read_data_from_file(file_name):
@@ -147,7 +147,7 @@ That’s much better because the user has a chance to continue working without r
     
         break
     
-When we expect there may be an area of our code that could experience errors, we can wrap it in a try block. Then, if an error is encountered it will move on to the except block to handle that error. In this case we print an error message. The downside is that as a developer this may not give me enough information about the problem. We can have the best of both solutions by using the Exception class. 
+When we expect there may be an area of our code that could experience errors, we can wrap it in a `try` block. Then, if an error is encountered it will move on to the `except` block to handle that error. In this case we print an error message. The downside is that as a developer this may not give me enough information about the problem. We can have the best of both solutions by using the Exception class. 
 
 The Exception class is a built-in class that contains all the information about a bunch of errors a user may encounter. With the Exception class we can provide information about the encountered error that is helpful to both the user and the developer. Let’s try that again but this time utilizing the Exception class (Figure8).
 
@@ -155,7 +155,7 @@ The Exception class is a built-in class that contains all the information about 
 
 ***Figure 8: The Exception class provides more information***
 
-If we look at the code we see that nothing has changed in our try block, but our except block calls the Exception class and stores the returned information in the variable e. Using that variable we can display the exception type (type(e)), the docstring of the exception(e.__doc__), and the error string (e.__str__()).
+If we look at the code we see that nothing has changed in our try block, but our except block calls the Exception class and stores the returned information in the variable `e`. Using that variable we can display the exception type (`type(e)`), the docstring of the exception(`e.__doc__`), and the error string (`e.__str__()`).
 
     while(True):
         try:
@@ -181,7 +181,7 @@ But what if the built-in error messaging isn’t good enough? For example, the e
 
 ***Figure 9: Our custom exception class***
 
-Our code for the try-except block largely remains the same, though for this particular demo I went with a different user interaction. Here I’m asking the user for a letter and if I receive any input other than a letter we’ll throw the exception with a raise statement. 
+Our code for the try-except block largely remains the same, though for this particular demo I went with a different user interaction. Here I’m asking the user for a letter and if I receive any input other than a letter we’ll throw the exception with a `raise` statement. 
 
     try:
         str_letter = input("Please enter a letter: ")
@@ -198,14 +198,14 @@ Our code for the try-except block largely remains the same, though for this part
         print(e.__doc__)
         print(e.__str__())
     
-You’ll see that the except block is pretty much the same as it was with the built-in Exception class, we’ve just changed the print statement to reflect that we’re using a custom error message. The real power here is in the custom class code: 
+You’ll see that the `except` block is pretty much the same as it was with the built-in Exception class, we’ve just changed the `print` statement to reflect that we’re using a custom error message. The real power here is in the custom class code: 
 
     class NotALetter(Exception):
         """  Check to see if entry is a letter.  """
         def __str__(self):
             return 'Entry is not a letter.'
         
-We’ve named our custom class (NotALetter) and given it a custom doc string which can provide important details to other developers. We’ve also set up a string for the class to return when triggered so the user will know why they encountered the error. 
+We’ve named our custom class (`NotALetter`) and given it a custom doc string which can provide important details to other developers. We’ve also set up a string for the class to return when triggered so the user will know why they encountered the error. 
 
 The last thing to do is load our program up in to Command Line to make sure it is all working there (Figure 10).
  
