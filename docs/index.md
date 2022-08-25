@@ -33,7 +33,7 @@ The code for this menu is a slightly modified version of the menu we used for As
 
 If the user chooses the Pickling Demo I present a second menu where they can choose to Pickle or Un-pickle data (Figure 2).
 
-![Figure2](/docs/Picture2.png)
+![Figure2](Picture2.png)
 
 ***Figure 2: Pickle menu***
 
@@ -76,9 +76,9 @@ The `dump` method will then take our list and convert it to a byte stream and wr
 
 After pickling the data we’ll display it back to the user in its pickled for so they can see what it looks like (Figures 3.1 & 3.2).
 
-![Figure3.1](/docs/Picture3.1.png)
+![Figure3.1](Picture3.1.png)
 
-![Figure3.2](/docs/Picture3.2.png)
+![Figure3.2](Picture3.2.png)
 
 ***Figures 3.1 & 3.2: Pickled data***
 
@@ -101,7 +101,7 @@ When we look at the function itself it takes one argument, the name of the file 
         print(objFileData)
         objFile.close()
  
-![Figure4](/docs/Picture4.png)
+![Figure4](Picture4.png)
 
 ***Figure 4: Our un-pickled list***
 
@@ -112,9 +112,9 @@ Pickling is a really handy want to store binary data but it is not without its p
 2. Because the data can be obscured it is important to make sure you trust the source of the pickled file as it is very easy to hide malicious code inside of such files and there is no way to know until it is too late. 
 Now let’s see it all put together (Figures 5.1 & 5.2).
   
-![Figure5.1](/docs/Picture5.1.png)
+![Figure5.1](Picture5.1.png)
 
-![Figure5.2](/docs/Picture5.2.png)
+![Figure5.2](Picture5.2.png)
 
 ***Figures 5.1 & 5.2: Our pickling demo running in the shell***
 
@@ -122,13 +122,13 @@ Now let’s see it all put together (Figures 5.1 & 5.2).
 ## Structured Error Handling
 Structured error handling is a great way to manage errors in your Python program. When a user triggers a condition that would throw an error you can use exceptions to catch those errors and return customized error messages that will allow the user to better understand the problem than the built-in error handling. This can be much more useful than when you don’t have any sort of error handling implemented in your program (Figure 6). 
 
-![Figure6](/docs/Picture6.png)
+![Figure6](Picture6.png)
 
 ***Figure 6: Without structured error handling***
 
 In this example I attempt to divide by zero without structured error handling and I get an error that is maybe helpful to me as the developer, but this is of no real use to my users. Even worse, it stops the script from running entirely. Instead, I can wrap my code in a try-except block and not only catch the error and provide helpful information, but the script will keep running. To demonstrate this I’ve written a little loop that asks the user to input a letter. If the user adds any input that is not a letter, it will trigger my except block and they will receive an error message (Figure 7). 
  
-![Figure7](/docs/Picture7.png)
+![Figure7](Picture7.png)
 
 ***Figure 7: Custom error messaging***
 
@@ -151,7 +151,7 @@ When we expect there may be an area of our code that could experience errors, we
 
 The Exception class is a built-in class that contains all the information about a bunch of errors a user may encounter. With the Exception class we can provide information about the encountered error that is helpful to both the user and the developer. Let’s try that again but this time utilizing the Exception class (Figure8).
 
-![Figure8](/docs/Picture8.png)
+![Figure8](Picture8.png)
 
 ***Figure 8: The Exception class provides more information***
 
@@ -177,7 +177,7 @@ If we look at the code we see that nothing has changed in our try block, but our
     
 But what if the built-in error messaging isn’t good enough? For example, the error messaging in the above example is pretty vague. Since we have the ability to expand the exception class with our own custom exception class, we can add whatever information we want to our error message. Let’s see how that might look (Figure 9).
   
-![Figure9](/docs/Picture9.png)
+![Figure9](Picture9.png)
 
 ***Figure 9: Our custom exception class***
 
@@ -209,7 +209,7 @@ We’ve named our custom class (`NotALetter`) and given it a custom doc string w
 
 The last thing to do is load our program up in to Command Line to make sure it is all working there (Figure 10).
  
-![Figure10](/docs/Picture10.png)
+![Figure10](Picture10.png)
 
 ***Figure 10: Our demo in Command Line***
 
