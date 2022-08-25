@@ -15,7 +15,7 @@ Pickle is a module in Python that must be imported into your program before you 
 import pickle
 For my demo script this week I started with a basic menu that asks the use which demo they would like to try (Figure 1). 
 
-![Figure1](/assets/Picture1.png)
+![Figure1](/docs/assets/Picture1.png)
 ***Figure 1: The demo menu***
 
 The code for this menu is a slightly modified version of the menu we used for Assignment 06. I built the menu and the user’s choice in to functions and called those functions inside of a while loop: 
